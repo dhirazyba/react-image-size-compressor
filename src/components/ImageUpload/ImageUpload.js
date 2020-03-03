@@ -90,13 +90,13 @@ const ImageUpload = props => {
     img.onload = () => {
       // set proper canvas dimensions before transform & export
       if (srcOrientation > 4 && srcOrientation < 9) {
-        canvas.setAttribute('width', img.naturalHeight)
-        canvas.setAttribute('height', img.naturalWidth)
-        ctx.translate(canvas.width/2,canvas.width/2);
+        canvas.setAttribute("width", img.naturalHeight);
+        canvas.setAttribute("height", img.naturalWidth);
+        ctx.translate(canvas.width / 2, canvas.width / 2);
         // rotate the canvas to the specified degrees
-        ctx.rotate(90*Math.PI/180);
+        ctx.rotate((90 * Math.PI) / 180);
         // ctx.drawImage(img, 90, 0,  width, height);
-        ctx.drawImage(img,-img.height/2,-img.height/2);
+        ctx.drawImage(img, -img.height / 2, -img.height / 2);
         ctx.restore();
       } else {
         canvas.width = img.width;
