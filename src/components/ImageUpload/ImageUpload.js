@@ -88,7 +88,6 @@ const ImageUpload = props => {
     let img = new Image();
     img.src = imgUrl;
     img.onload = () => {
-      console.log('Orientation', srcOrientation)
       // set proper canvas dimensions before transform & export
       if (srcOrientation > 4 && srcOrientation < 9) {
         canvas.setAttribute('width', img.naturalHeight)
@@ -104,9 +103,6 @@ const ImageUpload = props => {
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0, img.width, img.height);
       }
-      // canvas.setAttribute("width", img.width);
-      // canvas.setAttribute("height", img.height);
-      // context.drawImage(img, 0, 0, img.width, img.height);
       const IMAGE_QUALITY = 0.3;
       let base64 = canvas.toDataURL("image/jpeg", IMAGE_QUALITY);
       let fileName = result.file.name;
